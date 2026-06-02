@@ -1,0 +1,130 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+@import "@fontsource-variable/geist";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+    --font-heading: var(--font-sans);
+    --font-sans: 'Geist Variable', sans-serif;
+    --color-sidebar-ring: var(--sidebar-ring);
+    --color-sidebar-border: var(--sidebar-border);
+    --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+    --color-sidebar-accent: var(--sidebar-accent);
+    --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+    --color-sidebar-primary: var(--sidebar-primary);
+    --color-sidebar-foreground: var(--sidebar-foreground);
+    --color-sidebar: var(--sidebar);
+    --color-chart-5: var(--chart-5);
+    --color-chart-4: var(--chart-4);
+    --color-chart-3: var(--chart-3);
+    --color-chart-2: var(--chart-2);
+    --color-chart-1: var(--chart-1);
+    --color-ring: var(--ring);
+    --color-input: var(--input);
+    --color-border: var(--border);
+    --color-destructive: var(--destructive);
+    --color-accent-foreground: var(--accent-foreground);
+    --color-accent: var(--accent);
+    --color-muted-foreground: var(--muted-foreground);
+    --color-muted: var(--muted);
+    --color-secondary-foreground: var(--secondary-foreground);
+    --color-secondary: var(--secondary);
+    --color-primary-foreground: var(--primary-foreground);
+    --color-primary: var(--primary);
+    --color-popover-foreground: var(--popover-foreground);
+    --color-popover: var(--popover);
+    --color-card-foreground: var(--card-foreground);
+    --color-card: var(--card);
+    --color-foreground: var(--foreground);
+    --color-background: var(--background);
+    --radius-sm: calc(var(--radius) * 0.6);
+    --radius-md: calc(var(--radius) * 0.8);
+    --radius-lg: var(--radius);
+    --radius-xl: calc(var(--radius) * 1.4);
+    --radius-2xl: calc(var(--radius) * 1.8);
+    --radius-3xl: calc(var(--radius) * 2.2);
+    --radius-4xl: calc(var(--radius) * 2.6);
+}
+
+:root {
+    --background: #e7edf5;
+    --foreground: #182033;
+    --card: #f8fbff;
+    --card-foreground: #182033;
+    --popover: #f8fbff;
+    --popover-foreground: #182033;
+    --primary: #2563eb;
+    --primary-foreground: #ffffff;
+    --secondary: #dfe7f2;
+    --secondary-foreground: #182033;
+    --muted: #dfe7f2;
+    --muted-foreground: #657386;
+    --accent: #dce6f2;
+    --accent-foreground: #182033;
+    --destructive: #dc2626;
+    --border: #ced8e7;
+    --input: #cbd6e6;
+    --ring: #2563eb;
+    --chart-1: oklch(0.87 0 0);
+    --chart-2: oklch(0.556 0 0);
+    --chart-3: oklch(0.439 0 0);
+    --chart-4: oklch(0.371 0 0);
+    --chart-5: oklch(0.269 0 0);
+    --radius: 0.625rem;
+    --sidebar: #e1e9f4;
+    --sidebar-foreground: #182033;
+    --sidebar-primary: #2563eb;
+    --sidebar-primary-foreground: #ffffff;
+    --sidebar-accent: #dce6f2;
+    --sidebar-accent-foreground: #182033;
+    --sidebar-border: #ced8e7;
+    --sidebar-ring: #2563eb;
+}
+
+.dark {
+    --background: #101218;
+    --foreground: #e6ebf5;
+    --card: #1b1f2a;
+    --card-foreground: #e6ebf5;
+    --popover: #1b1f2a;
+    --popover-foreground: #e6ebf5;
+    --primary: #77a3ff;
+    --primary-foreground: #0b1020;
+    --secondary: #222836;
+    --secondary-foreground: #e6ebf5;
+    --muted: #222836;
+    --muted-foreground: #9aa6ba;
+    --accent: #26314a;
+    --accent-foreground: #e6ebf5;
+    --destructive: #f87171;
+    --border: #2d3442;
+    --input: #343c4d;
+    --ring: #77a3ff;
+    --chart-1: oklch(0.87 0 0);
+    --chart-2: oklch(0.556 0 0);
+    --chart-3: oklch(0.439 0 0);
+    --chart-4: oklch(0.371 0 0);
+    --chart-5: oklch(0.269 0 0);
+    --sidebar: #181b24;
+    --sidebar-foreground: #e6ebf5;
+    --sidebar-primary: #77a3ff;
+    --sidebar-primary-foreground: #0b1020;
+    --sidebar-accent: #222836;
+    --sidebar-accent-foreground: #e6ebf5;
+    --sidebar-border: #2d3442;
+    --sidebar-ring: #77a3ff;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+    }
+  body {
+    @apply bg-background text-foreground;
+    }
+  html {
+    @apply font-sans;
+    }
+}
