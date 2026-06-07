@@ -27,6 +27,7 @@ jobs:
         shell: pwsh
         run: |
           corepack enable
+          corepack install
           pnpm --version
 
       - name: Setup Rust
