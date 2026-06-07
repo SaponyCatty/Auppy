@@ -12,23 +12,22 @@ permissions:
 jobs:
   build-windows:
     name: Build Auppy Windows Installer
-    runs-on: windows-latest
+    runs-on: windows-2025
 
     steps:
       - name: Checkout source code
-        uses: actions/checkout@v4
-
-      - name: Setup pnpm
-        uses: pnpm/action-setup@v4
-        with:
-          version: 11.4.0
-          run_install: false
+        uses: actions/checkout@v6
 
       - name: Setup Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v5
         with:
-          node-version: 22
-          cache: pnpm
+          node-version: 24
+
+      - name: Enable pnpm with Corepack
+        shell: pwsh
+        run: |
+          corepack enable
+          pnpm --version
 
       - name: Setup Rust
         uses: dtolnay/rust-toolchain@stable
@@ -40,7 +39,7 @@ jobs:
         run: pnpm tauri build
 
       - name: Upload Windows EXE artifact
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v6
         with:
           name: Auppy-Windows-Installer
           path: src-tauri/target/release/bundle/nsis/*-setup.exe
