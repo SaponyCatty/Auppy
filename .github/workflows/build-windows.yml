@@ -18,18 +18,22 @@ jobs:
       - name: Checkout source code
         uses: actions/checkout@v6
 
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          run_install: false
+
       - name: Setup Node.js
-        uses: actions/setup-node@v5
+        uses: actions/setup-node@v6
         with:
           node-version: 24
-          cache: pnpm
+          package-manager-cache: false
 
-      - name: Enable pnpm with Corepack
+      - name: Verify pnpm
         shell: pwsh
         run: |
-          corepack enable
-          corepack install
           pnpm --version
+          Get-Command pnpm
 
       - name: Setup Rust
         uses: dtolnay/rust-toolchain@stable
@@ -39,6 +43,11 @@ jobs:
 
       - name: Build Windows installer
         run: pnpm tauri build
+
+      - name: List Windows bundle outputs
+        shell: pwsh
+        run: |
+          Get-ChildItem -Recurse src-tauri/target/release/bundle
 
       - name: Upload Windows EXE artifact
         uses: actions/upload-artifact@v6
