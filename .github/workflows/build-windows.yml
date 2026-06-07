@@ -1,4 +1,4 @@
-name: Build Windows EXE
+name: Build Windows EXE Fixed
 
 on:
   workflow_dispatch:
@@ -17,6 +17,13 @@ jobs:
     steps:
       - name: Checkout source code
         uses: actions/checkout@v6
+
+      - name: Show workflow ref
+        shell: pwsh
+        run: |
+          Write-Host "Workflow marker: fixed-pnpm-setup-2026-06-08"
+          Write-Host "GITHUB_REF=$env:GITHUB_REF"
+          Write-Host "GITHUB_SHA=$env:GITHUB_SHA"
 
       - name: Setup pnpm
         uses: pnpm/action-setup@v6
